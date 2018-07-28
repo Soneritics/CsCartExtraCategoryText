@@ -30,7 +30,7 @@ if (!defined('BOOTSTRAP')) { die('Access denied'); }
  * @param string $langCode
  * @return string
  */
-function fn_soneritics_extracattext_get_text(int $categoryId, string $langCode): string
+function fn_soneritics_extracattext_get_text($categoryId, string $langCode = CART_LANGUAGE): string
 {
     return db_get_field(
         "SELECT `text` FROM ?:soneritics_extracattext WHERE category_id = ?i AND lang_code = ?s",

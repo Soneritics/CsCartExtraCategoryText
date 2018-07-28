@@ -1,0 +1,1 @@
+<div id="soneritics_extracattext" class="ty-wysiwyg-content">{fn_soneritics_extracattext_get_text($category_data.category_id) nofilter}</div>
