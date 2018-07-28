@@ -24,17 +24,25 @@
  */
 if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
-/**
- * Get the text for a specific category
- * @param int $categoryId
- * @param string $langCode
- * @return string
- */
-function fn_soneritics_extracattext_get_text(int $categoryId, string $langCode): string
-{
-    return db_get_field(
-        "SELECT `text` FROM ?:soneritics_extracattext WHERE category_id = ?i AND lang_code = ?s",
-        $categoryId,
-        $langCode
+// Only available in the update mode
+if ($mode === 'update') {
+    // Arrange data
+    $categoryId = empty($_REQUEST['category_id']) ? 0 : (int)$_REQUEST['category_id'];
+    $langCode = DESCR_SL;
+
+    // Save possible extra category text
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        db_query(
+            "REPLACE INTO ?:soneritics_extracattext(category_id, lang_code, `text`) VALUES(?i, ?s, ?s)",
+            $categoryId,
+            $langCode,
+            $_POST['soneritics_extracattext']
+        );
+    }
+
+    // Set view vars
+    \Tygh\Registry::get('view')->assign(
+        'soneritics_extracattext',
+        fn_soneritics_extracattext_get_text($categoryId, $langCode)
     );
 }
