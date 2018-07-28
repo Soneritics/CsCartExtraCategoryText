@@ -38,3 +38,18 @@ function fn_soneritics_extracattext_get_text($categoryId, string $langCode = CAR
         $langCode
     );
 }
+
+/**
+ * Check if a text has been set for a category
+ * @param int $categoryId
+ * @param string $langCode
+ * @return string
+ */
+function fn_soneritics_extracattext_has_text($categoryId, string $langCode = CART_LANGUAGE): string
+{
+    return (int)db_get_field(
+        "SELECT COUNT($categoryId) FROM ?:soneritics_extracattext WHERE category_id = ?i AND lang_code = ?s",
+        $categoryId,
+        $langCode
+    ) > 0;
+}
