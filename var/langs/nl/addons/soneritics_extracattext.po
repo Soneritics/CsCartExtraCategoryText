@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: soneritics\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en_EN\n"
+"Last-Translator: Jordi Jolink <translate@jordijolink.nl>\n"
+"PO-Revision-Date: 2018-07-16 21:00+0200\n"
+
+msgctxt "Addons::name::soneritics_extracattext"
+msgid "Soneritics Extra Category Page Text"
+msgstr "Soneritics Extra Categorie Tekst"
+
+msgctxt "Addons::description::soneritics_extracattext"
+msgid "Adds a free text field under the products on category pages"
+msgstr "Voegt een vrij tekstveld toe op categoriepagina's onder de producten"
+
+msgctxt "Languages::addons.soneritics_extracattext.extra_field"
+msgid "Text under products"
+msgstr "Tekst onder de producten"

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>soneritics_extracattext</id>
+    <name>Soneritics Extra Category Page Text</name>
+    <version>1.0</version>
+    <default_language>nl</default_language>
+    <priority>1000</priority>
+    <status>active</status>
+    <has_icon>Y</has_icon>
+    <queries>
+        <item>
+            CREATE TABLE IF NOT EXISTS ?:soneritics_extracattext(
+                `category_id` MEDIUMINT(8) NOT NULL,
+                `lang_code` CHAR(2) NOT NULL,
+                `text` TEXT NOT NULL,
+                PRIMARY KEY (`category_id`, `lang_code`)
+            )
+        </item>
+        <!-- For historic reference, do not delete this table! <item for="uninstall">DROP TABLE IF EXISTS ?:soneritics_extracattext</item>-->
+    </queries>
+</addon>
